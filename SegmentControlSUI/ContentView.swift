@@ -19,11 +19,25 @@ struct ContentView: View {
     var msColors = ["sw", "sbl", "sr", "sb", "sg"]
     var myColors = ["yw", "ybl", "yr", "yb", "yg"]
     
+    
+    
     var body: some View {
         
         VStack {
-            Text("Tesla \(company[segmentIndex])")
-                .font(.title)
+            HStack {
+                
+                Image("tesla logo")
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    .padding()
+                Image("logo")
+                    .resizable()
+                    .frame(width: 188, height: 25)
+                    .padding()
+            }
+            
+            //Text("Tesla \(company[segmentIndex])")
+            //   .font(.title)
             
             Picker(selection: $segmentIndex, label: Text(""), content: {
                 ForEach(0..<company.count) {
@@ -133,6 +147,7 @@ struct ContentView: View {
                     Text("")
                     Text("Price from 79,990$")
                         .fontWeight(.bold)
+        
                 }
                 case 1:
                     VStack {
@@ -263,6 +278,7 @@ struct ContentView: View {
                                 Text("0-60 mph")
                                     .fontWeight(.light)
                                     .foregroundColor(Color.gray)
+                                
                             }
                         }
                         Text("")
@@ -444,8 +460,25 @@ struct ContentView: View {
                 }
             default:
                 Text("Please, choose modification")
+                
             }
+            /*VStack {
+                Text("")
+                Text(" Buy ")
+                    .font(.title2)
+                    .foregroundColor(Color.white)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
             
+            }*/
+            VStack {
+                Text("")
+                Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                    Text(" Buy ")
+                }.background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
+                .foregroundColor(Color.white)
+                //.font(.title2)
+                .border(cornerRadius: 5)
+            }
             Spacer()
         } 
     }
